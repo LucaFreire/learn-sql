@@ -5,6 +5,7 @@ create table tabela1(
   data_nasc date not Null -- Campo de preenchimento obrigatório
 )
 
+
 alter table tabela1
 add cpf bigint not Null unique -- Os Dados nuca vão se repetir
 
