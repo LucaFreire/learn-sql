@@ -96,7 +96,7 @@ ORDER BY [PREÇO DE LISTA] DESC
 
 -- SELECT
 
--- Uso de DISTINCT (N�o  mostra valores repetidos)
+-- Uso de DISTINCT (Não  mostra valores repetidos)
 SELECT DISTINCT [NOME DO PRODUTO], EMBALAGEM ,TAMANHO
 FROM [TABELA DE PRODUTOS]
 
