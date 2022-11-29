@@ -62,3 +62,112 @@ alter table teste_check
 add constraint check_estado_civil 
 check(estado_civil in('s','c','v','d'))
 
+------------------------------------------------------------------
+-- USE NOTAS_FISCAIS
+
+-- SELECT
+
+-- Uso de DISTINCT (Não  mostra valores repetidos)
+SELECT DISTINCT [NOME DO PRODUTO], EMBALAGEM ,TAMANHO
+FROM [TABELA DE PRODUTOS]
+
+
+-- Uso do comando TOP (Mostra todos os TOP<Num> primeiro valores da tabela)
+SELECT TOP 10 * FROM [TABELA DE PRODUTOS]
+WHERE [PREÇO DE LISTA] > 7
+
+
+-- Uso do Order By (Crescente)
+SELECT * FROM [TABELA DE PRODUTOS]
+WHERE SABOR  = 'laranja'
+ORDER BY [PREÇO DE LISTA]
+
+-- Uso do Order By (Decrescente)
+SELECT * FROM [TABELA DE PRODUTOS]
+WHERE SABOR  = 'laranja'
+ORDER BY [PREÇO DE LISTA] DESC
+
+-- Mostre o produto mais caro entre os produtos que sejam pet de 1 litro
+SELECT TOP 1 * FROM [TABELA DE PRODUTOS]
+WHERE EMBALAGEM = 'PET' AND TAMANHO = '1 Litro'
+ORDER BY [PREÇO DE LISTA] DESC
+
+
+
+-- SELECT
+
+-- Uso de DISTINCT (N�o  mostra valores repetidos)
+SELECT DISTINCT [NOME DO PRODUTO], EMBALAGEM ,TAMANHO
+FROM [TABELA DE PRODUTOS]
+
+
+-- Uso do comando TOP (Mostra todos os TOP<Num> primeiro valores da tabela)
+SELECT TOP 10 * FROM [TABELA DE PRODUTOS]
+WHERE [PREÇO DE LISTA] > 7
+
+
+-- Uso do Order By (Crescente)
+SELECT * FROM [TABELA DE PRODUTOS]
+WHERE SABOR  = 'laranja'
+ORDER BY [PREÇO DE LISTA]
+
+-- Uso do Order By (Decrescente)
+SELECT * FROM [TABELA DE PRODUTOS]
+WHERE SABOR  = 'laranja'
+ORDER BY [PREÇO DE LISTA] DESC
+
+
+-- Mostre o produto mais caro entre os produtos que sejam pet de 1 litro
+SELECT TOP 1 * FROM [TABELA DE PRODUTOS]
+WHERE EMBALAGEM = 'PET' AND TAMANHO = '1 Litro'
+ORDER BY [PREÇO DE LISTA] DESC
+
+
+-- Select mostrando por agrupamento de estado e somando o limite de credito
+SELECT ESTADO, SUM([LIMITE DE CREDITO]) AS [LIMITE DE CREDITO]
+FROM [TABELA DE CLIENTES]
+GROUP BY (ESTADO)
+ORDER BY ([LIMITE DE CREDITO]) DESC
+
+
+-- Mostra os estados que tem a soma do limite de credito maior que 90000
+SELECT ESTADO, SUM([LIMITE DE CREDITO]) AS [LIMITE DE CREDITO]
+FROM [TABELA DE CLIENTES]
+GROUP BY ESTADO HAVING SUM([LIMITE DE CREDITO]) > 90000
+
+
+-- Select 
+SELECT ESTADO, SUM([VOLUME DE COMPRA]) AS Volume
+FROM [TABELA DE CLIENTES]
+GROUP BY ESTADO HAVING SUM([VOLUME DE COMPRA]) > 150000
+
+
+-- Qtd. Sexo M e F por estado
+SELECT 
+	ESTADO,
+	COUNT(CASE [SEXO] WHEN 'F' THEN 1 ELSE NULL END) AS 'Qtd. Sexo Femenino',
+	COUNT(CASE [SEXO] WHEN 'M' THEN 1 ELSE NULL END) AS 'Qtd. Sexo Masculino'
+FROM [TABELA DE CLIENTES]
+GROUP BY (ESTADO)
+
+
+-- Uso do case
+SELECT 
+	[NOME DO PRODUTO],
+	[PREÇO DE LISTA], 
+	CASE
+		WHEN [PREÇO DE LISTA] >= 12  
+			THEN 'Produto Caro'
+		WHEN [PREÇO DE LISTA] >=7 AND [PREÇO DE LISTA] <12 
+			THEN 'Produto Médio'
+		ELSE 'Produto Barato' 
+	END AS [Avaliação]
+FROM [TABELA DE PRODUTOS]
+
+
+SELECT
+	YEAR([DATA]),
+	COUNT(*)
+FROM [NOTAS FISCAIS]
+GROUP BY YEAR([DATA])
+
