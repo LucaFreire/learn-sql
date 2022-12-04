@@ -7,20 +7,30 @@
 CREATE OR ALTER PROC CPF_BIT @CPF VARCHAR(12), @BIT BIT
 AS 
     BEGIN
-        IF @BIT = 1
-        (
-            SELECT C.NOME FROM [CURSO] C
+        IF @BIT = 1 
+            SELECT
+            A.NOME ALUNO,
+            C.NOME CURSO,
+            T.DATA_INICIO [DATA INÍCIO],
+            T.DATA_FIM [DATA FIM]
+            
+            FROM [CURSO] C
             JOIN [TURMA] T
                 ON C.ID = T.ID_CURSO
             JOIN [ALUNO_TURMA] TA
                 ON T.ID = TA.ID_TURMA
             JOIN [ALUNO] A
-                ON TA.ID_ALUNO = A.ID 
+                ON TA.ID_ALUNO = A.ID
             WHERE A.CPF = @CPF AND T.DATA_FIM < GETDATE()
-        )
+        
         ELSE
-        (
-            SELECT C.NOME FROM [CURSO] C
+            SELECT 
+            A.NOME ALUNO,
+            C.NOME CURSO,
+            T.DATA_INICIO [DATA INÍCIO],
+            T.DATA_FIM [DATA FIM]
+            
+            FROM [CURSO] C
             JOIN [TURMA] T
                 ON C.ID = T.ID_CURSO
             JOIN [ALUNO_TURMA] TA
@@ -28,6 +38,5 @@ AS
             JOIN [ALUNO] A
                 ON TA.ID_ALUNO = A.ID 
             WHERE A.CPF = @CPF AND T.DATA_FIM > GETDATE()
-        )
+        
     END
-    
