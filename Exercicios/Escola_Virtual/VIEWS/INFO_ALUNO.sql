@@ -1,4 +1,8 @@
-CREATE VIEW INFO_ALUNOS AS
+-- Crie uma view que faça um select que mostre os nomes dos alunos,
+-- o nome do curso que estão inscritos e o nome do professor responsável.
+-- Ordene por nome do curso
+
+CREATE OR ALTER VIEW INFO_ALUNOS AS
 SELECT
     A.NOME ALUNO,
     C.NOME CURSO,

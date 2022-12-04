@@ -1,4 +1,7 @@
-CREATE VIEW INFO_GASTO AS
+-- Crie uma view que faça um select mostrando o nome dos alunos
+-- que gastaram mais de 1.000,00 no ano atual
+
+CREATE OR ALTER VIEW INFO_GASTO AS
 SELECT
     A.NOME ALUNO
 FROM ALUNO A
