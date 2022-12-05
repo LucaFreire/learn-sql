@@ -1,0 +1,19 @@
+-- Que mostre os nomes dos alunos, nomes das disciplinas e as notas em cada uma delas
+
+CREATE VIEW VIEW_INFO_ALUNO
+    AS 
+    SELECT TA.NOME NOME,
+    D.NOME DISCIPLINA,
+    TT.NOTA1 NOTA1,
+    TT.NOTA2 NOTA2,
+    TT.NOTA3 NOTA3,
+    TT.NOTA4 NOTA4,
+    TT.NOTAFINAL NOTA_FINAL
+    FROM [TABELA ALUNO] TA
+    
+    JOIN [TABELA TURMA] TT
+        ON TT.ID_ALUNO = TA.ID
+    JOIN [TABELA DISCIPLINA X CURSO] TD
+        ON TT.ID_DISCIPLINA_CURSO = TD.ID_DISCIPLINA
+    JOIN [TABELA DISCIPLINA] D
+        ON D.ID = TD.ID_DISCIPLINA

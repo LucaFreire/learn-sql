@@ -1,0 +1,15 @@
+--- mostre as disciplinas recebendo o nome do aluno como parâmetro
+
+CREATE OR ALTER PROC INFO_CURSO_BY_NAME @NOME VARCHAR(100)
+AS 
+    BEGIN 
+        SELECT D.NOME FROM [TABELA DISCIPLINA] D
+        JOIN [TABELA DISCIPLINA X CURSO] TD
+        ON D.ID = TD.ID_DISCIPLINA
+        JOIN [TABELA TURMA] TT
+        ON TT.ID_DISCIPLINA_CURSO = TD.ID_DISCIPLINA
+        JOIN [TABELA ALUNO] A
+        ON A.ID = TT.ID_ALUNO
+        WHERE A.NOME = @NOME
+        GROUP BY D.NOME
+    END 
