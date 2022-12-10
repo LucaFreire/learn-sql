@@ -3,15 +3,15 @@
 --- 20 alunos
 INSERT INTO [TABELA ALUNO](NOME,CPF,DATA_NASC)
 VALUES 
-    ('THIGAS', '1','10/12/2000'),  -- CPF reduzido p/ facilitar a inserção (a ideia é a mesma)
+    ('THIGAS', '1','10/12/2000'),
     ('DONZIN', '2','5/11/2010'),
     ('FALAS', '3','9/10/2006'),
     ('DEDELAS', '4', '10/04/2003'),
-    ('GABU', '5','30/05/2001'),
+    ('GABU', '5','03/05/2001'),
     ('HEMERSHOW', '6','12/11/2000'),
     ('MAITE', '7','10/12/2000'),
     ('LUSQUINHA', '8','12/12/2002'),
-    ('PITCH', '9','14/09/2000'),
+    ('PITCH', '9','12/09/2000'),
     ('RAMIREZ', '10', '12/10/2004'),
     ('MANU', '11','10/07/2003'),
     ('MURILOVE', '12','10/01/2002'),
@@ -62,7 +62,7 @@ VALUES
 --- 4 turmas com 5 alunos em cada uma 
 
 -- uma das turmas deve possuir 3 notas
-INSERT INTO [TABELA TURMA](ID_ALUNO, ID_PROFESSOR, ID_DISCIPLINA_CURSO, NOTA1, NOTA2, NOTA3, NOTAFINAL) -- TURMA 1
+INSERT INTO [TABELA TURMA](ID_ALUNO, ID_PROFESSOR, ID_DISCIPLINA_CURSO, NOTA1, NOTA2, NOTA3, NOTAFINAL) 
 VALUES
     (1, 1, 1, 77.4, 35.9, 71),
     (2, 2, 2, 98.0, 44.0, 60.0),
@@ -71,31 +71,31 @@ VALUES
     (5, 1, 1, 70.0, 55.0, 62.5)
 
 --  2 turmas devem possuir 2 notas 
-INSERT INTO [TABELA TURMA](ID_ALUNO, ID_PROFESSOR, ID_DISCIPLINA_CURSO, NOTA1, NOTA2, NOTAFINAL) -- TURMA 2
+INSERT INTO [TABELA TURMA](ID_ALUNO, ID_PROFESSOR, ID_DISCIPLINA_CURSO, NOTA1, NOTA2) 
 VALUES
-    (6, 1, 1, 77.0, 35.0, 56),
-    (7, 2, 2, 98.4, 44.9, 71.6),
-    (8, 3, 3, 45.4, 35.9, 47.9),
-    (9, 4, 2, 43.4, 38.9, 56.0),
-    (10, 1, 1, 70.4, 34.9, 55.0)
+    (6, 1, 1, 77.0, 35.0),
+    (7, 2, 2, 98.4, 44.9),
+    (8, 3, 3, 45.4, 35.9),
+    (9, 4, 2, 43.4, 38.9),
+    (10, 1, 1, 70.4,55.0)
 
-INSERT INTO [TABELA TURMA](ID_ALUNO, ID_PROFESSOR, ID_DISCIPLINA_CURSO, NOTA1, NOTA2, NOTAFINAL) -- TURMA 3
+INSERT INTO [TABELA TURMA](ID_ALUNO, ID_PROFESSOR, ID_DISCIPLINA_CURSO, NOTA1, NOTA2) -- TURMA 3
 VALUES
-    (11, 1, 1, 75.0, 75.0, 75),
-    (12, 2, 2, 70.0, 70.0, 70),
-    (13, 3, 3, 80.0, 80.0, 80),
-    (14, 4, 2, 90.0, 90.0, 90),
-    (15, 1, 1, 77.0, 77.0, 77)
+    (11, 1, 1, 75.0, 75.0),
+    (12, 2, 2, 70.0, 70.0),
+    (13, 3, 3, 80.0, 80.0),
+    (14, 4, 2, 90.0, 90.0),
+    (15, 1, 1, 77.0, 77.0)
 
 
 -- uma turma deve possuir apenas a primeira nota
-INSERT INTO [TABELA TURMA](ID_ALUNO, ID_PROFESSOR, ID_DISCIPLINA_CURSO, NOTA1, NOTAFINAL) -- TURMA 4
+INSERT INTO [TABELA TURMA](ID_ALUNO, ID_PROFESSOR, ID_DISCIPLINA_CURSO, NOTA1) -- TURMA 4
 VALUES
-    (11, 1, 1, 77.4, 77.4),
-    (12, 2, 2, 98.4, 98.4),
-    (13, 3, 3, 45.4, 45.4),
-    (14, 4, 2, 43.4, 43.4),
-    (15, 1, 1, 70.4, 70.4)
+    (11, 1, 1, 77.4),
+    (12, 2, 2, 98.4),
+    (13, 3, 3, 45.4),
+    (14, 4, 2, 43.4),
+    (15, 1, 1, 70.4)
 
 
 --- 5 alunos com 1 boleto já pago e 1 para o mês que vem
